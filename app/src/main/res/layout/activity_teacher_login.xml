@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".Teacher.TeacherLoginActivity">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/t_login_phoneEdittextid"
+        android:background="@drawable/edit_bg1"
+        android:padding="10dp"
+        android:hint="Phone"
+        android:textColorHint="#000"
+        android:textColor="#000"
+        android:textSize="17sp"
+        android:inputType="number"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/t_login_phoneEdittextid"
+        android:id="@+id/t_login_passwordEdittextid"
+        android:background="@drawable/edit_bg1"
+        android:padding="10dp"
+        android:hint="Password"
+        android:textColorHint="#000"
+        android:textColor="#000"
+        android:layout_marginTop="10dp"
+        android:textSize="17sp"
+        android:inputType="textPassword"
+        />
+    <Button
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/t_login_LoginButtonid"
+        android:layout_below="@+id/t_login_passwordEdittextid"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/buttonbg"
+        android:textColor="#fff"
+        android:text="Login"
+        />
+
+
+    <TextView
+        android:id="@+id/t_login_registerTextviewid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/t_login_LoginButtonid"
+        android:layout_marginTop="5dp"
+        android:text="Don't Have Any Account?Register"
+        android:textSize="18sp"
+        android:textAlignment="textEnd"
+        />
+
+
+
+
+
+</RelativeLayout>

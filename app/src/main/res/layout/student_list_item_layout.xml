@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="15dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp">
+
+    <RelativeLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/studentItem_studentNameTextviewid"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Md Sohrab Hossain Sohel"
+            android:textColor="#000"
+            />
+        <TextView
+            android:layout_below="@+id/studentItem_studentNameTextviewid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/studentItem_studentRollTextviewid"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="902802"
+            android:textColor="#000"
+
+            />
+
+
+
+    </RelativeLayout>
+
+
+
+
+</androidx.cardview.widget.CardView>

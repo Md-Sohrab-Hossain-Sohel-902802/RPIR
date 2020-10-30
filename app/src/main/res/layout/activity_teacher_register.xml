@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".Teacher.TeacherRegisterActivity">
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/teacherLogin_CodeEdittextid"
+        android:background="@drawable/edit_bg1"
+        android:padding="10dp"
+        android:hint="Teacher Code"
+        android:textColorHint="#000"
+        android:textColor="#000"
+        android:textSize="17sp"
+        android:inputType="number"
+
+        />
+
+    <Spinner
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/teacherLogin_CodeEdittextid"
+        android:background="@drawable/edit_bg1"
+        android:id="@+id/teacherlogin_selectDepartmentSpinnerid"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/teacherlogin_selectDepartmentSpinnerid"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/buttonbg"
+        android:textColor="#fff"
+        android:text="Search"
+        android:id="@+id/teacherLogin_SearchButtonid"
+        />
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/teacherlogin_NameEdittextid"
+        android:background="@drawable/edit_bg1"
+        android:padding="10dp"
+        android:hint="Teacher Name"
+        android:textColorHint="#000"
+        android:textColor="#000"
+        android:textSize="17sp"
+        android:inputType="number"
+        android:visibility="gone"
+        />
+    <TextView
+        android:text="01740244739"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/teacherlogin_NameEdittextid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/teacherlogin_PhoneTextviewid"
+        android:background="@drawable/edit_bg1"
+        android:padding="10dp"
+        android:textColorHint="#000"
+        android:textColor="#000"
+        android:textSize="17sp"
+        android:visibility="gone"
+        />
+    <TextView
+        android:text="125"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/teacherlogin_PhoneTextviewid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/teacherLogin_CodeTextviewid"
+        android:background="@drawable/edit_bg1"
+        android:padding="10dp"
+        android:textColorHint="#000"
+        android:textColor="#000"
+        android:textSize="17sp"
+        android:visibility="gone"
+        />
+    <TextView
+        android:text="Computer"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/teacherLogin_CodeTextviewid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/teacherlogin_DepartmentTextviewid"
+        android:background="@drawable/edit_bg1"
+        android:padding="10dp"
+        android:textColorHint="#000"
+        android:textColor="#000"
+        android:textSize="17sp"
+        android:visibility="gone"
+        />
+    <TextView
+        android:text="Create new Password"
+        android:layout_below="@+id/teacherlogin_DepartmentTextviewid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:id="@+id/txt"
+        android:textColorHint="#000"
+        android:textColor="#000"
+        android:textSize="15sp"
+        android:visibility="gone"
+        />
+    <EditText
+        android:layout_below="@+id/txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/teacherlogin_PasswordEdittextid"
+        android:background="@drawable/edit_bg1"
+        android:padding="10dp"
+        android:hint="Password"
+        android:layout_marginTop="10dp"
+        android:textColorHint="#000"
+        android:textColor="#000"
+        android:textSize="17sp"
+        android:inputType="textPassword"
+        android:visibility="gone"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/teacherRegisterButtonid"
+        android:layout_below="@+id/teacherlogin_PasswordEdittextid"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/buttonbg"
+        android:textColor="#fff"
+        android:text="Register"
+        android:visibility="gone"
+        />
+
+
+
+
+
+
+
+</RelativeLayout>

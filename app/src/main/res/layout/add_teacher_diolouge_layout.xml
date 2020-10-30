@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_bg1"
+        android:padding="10dp"
+        android:hint="Enter Teacher Name"
+        android:textColor="#000"
+        android:textSize="16sp"
+        android:id="@+id/teacherdiolouge_TeacherNameEdittextid"
+        />
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/teacherdiolouge_TeacherNameEdittextid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_bg1"
+        android:padding="10dp"
+        android:hint="Enter Teacher Code"
+        android:inputType="number"
+        android:textColor="#000"
+        android:textSize="16sp"
+        android:id="@+id/teacherdiolouge_TeacherCodeEdittextid"
+        />
+    <EditText
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/teacherdiolouge_TeacherCodeEdittextid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_bg1"
+        android:padding="10dp"
+        android:hint="Enter Teacher Phone Number"
+        android:inputType="number"
+        android:textColor="#000"
+        android:textSize="16sp"
+        android:id="@+id/teacherdiolouge_TeacherPhoneEdittextid"
+        />
+    <Spinner
+        android:background="@drawable/edit_bg1"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/teacherdiolouge_TeacherPhoneEdittextid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/teacher_diolougeDepartmentSpinnerid"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/teacher_diolougeDepartmentSpinnerid"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/buttonbg"
+        android:text="Save"
+        android:textColor="#fff"
+        android:textAllCaps="false"
+        android:id="@+id/teacherdiolouge_AddTeacherButton"
+
+        />
+
+
+
+</RelativeLayout>

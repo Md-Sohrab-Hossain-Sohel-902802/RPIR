@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/routine_Diolouge_HeaderTextviewid"
+      android:textSize="18sp"
+        android:textColor="#000"
+        android:text="Teacher Code"
+        android:layout_marginBottom="10dp"
+        android:textAlignment="center"
+
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_bg1"
+        android:padding="10dp"
+        android:hint="Subject Code"
+        android:textColor="#000"
+        android:inputType="number"
+        android:textSize="16sp"
+        android:layout_below="@+id/routine_Diolouge_HeaderTextviewid"
+        android:id="@+id/routineDiolouge_SubjectCodeEdittextid"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text"
+        android:layout_below="@+id/routineDiolouge_SubjectCodeEdittextid"
+        android:textSize="16sp"
+        android:textColor="#000"
+        android:text="Teacher Code"
+        />
+
+    <Spinner
+        android:background="@drawable/edit_bg1"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/routineDiolouge_TeacherCodeSpinnerid"
+        />
+    <EditText
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/routineDiolouge_TeacherCodeSpinnerid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_bg1"
+        android:padding="10dp"
+        android:hint="Room Number"
+        android:inputType="number"
+        android:textColor="#000"
+        android:textSize="16sp"
+        android:id="@+id/routinediolouge_RoomNumberEdittextid"
+        />
+    <EditText
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/routinediolouge_RoomNumberEdittextid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_bg1"
+        android:padding="10dp"
+        android:hint="Teacher Name"
+        android:inputType="number"
+        android:textColor="#000"
+        android:textSize="16sp"
+        android:id="@+id/routinediolouge_TeacherNameEdittextid"
+        />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/routinediolouge_TeacherNameEdittextid"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/buttonbg"
+        android:text="Save"
+        android:textColor="#fff"
+        android:textAllCaps="false"
+        android:id="@+id/routineDiolouge_saveButtonid"
+
+        />
+
+
+</RelativeLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Teacher.TeacherMainActivity">
+
+    <include
+        android:id="@+id/teacher_main_ToolbarId"
+        layout="@layout/custom_actionbar"/>
+
+
+    <Button
+       android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/teacher_MainRoutineButton"
+        android:background="@drawable/buttonbg"
+        android:layout_centerInParent="true"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:text="My Daily Class Routine"
+
+        />
+    <Button
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/teacher_MainRoutineButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/teacher_MainTeachersButton"
+        android:background="@drawable/buttonbg"
+        android:layout_centerInParent="true"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:text="Teachers"
+
+        />
+
+
+</RelativeLayout>

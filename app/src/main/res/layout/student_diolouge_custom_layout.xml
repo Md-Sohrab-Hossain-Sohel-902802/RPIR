@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:layout_height="wrap_content">
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Md Sohrab Hossain Sohel"
+        android:id="@+id/student_diolouge_HeaderTextviewid"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:layout_marginBottom="10dp"
+        android:textAlignment="center"
+        />
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_bg1"
+        android:padding="7dp"
+        android:hint="Name"
+        android:textColor="#000"
+        android:textSize="17sp"
+        android:layout_below="@+id/student_diolouge_HeaderTextviewid"
+        android:id="@+id/student_diolouge_NameEdittext"
+        />
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/student_diolouge_NameEdittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_bg1"
+        android:padding="7dp"
+        android:hint="Roll"
+        android:inputType="number"
+        android:textColor="#000"
+        android:textSize="17sp"
+        android:id="@+id/student_diolouge_RollEdittext"
+        />
+    <EditText
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/student_diolouge_RollEdittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_bg1"
+        android:padding="7dp"
+        android:hint="Registration"
+        android:textColor="#000"
+        android:textSize="17sp"
+        android:id="@+id/student_diolouge_RegistrationEdittext"
+        />    <EditText
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/student_diolouge_RegistrationEdittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_bg1"
+        android:padding="7dp"
+        android:hint="Phone"
+        android:inputType="number"
+        android:textColor="#000"
+        android:textSize="17sp"
+        android:id="@+id/student_diolouge_PhoneEdittext"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/student_diolouge_PhoneEdittext"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edit_bg1"
+        android:text="Save"
+        android:textAllCaps="false"
+        android:id="@+id/student_diolouge_Addbuttonid"
+
+        />
+
+
+
+</RelativeLayout>

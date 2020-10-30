@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_marginBottom="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_goneMarginBottom="3dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/admin_spinnerlistTextviewid"
+        android:text="Manage Class list"
+        android:background="@drawable/edit_bg1"
+        android:padding="10dp"
+        android:textColor="#000"
+        android:textSize="16sp"
+        android:textAlignment="center"
+
+
+        />
+
+
+
+
+
+</RelativeLayout>

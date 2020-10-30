@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Admin.AdminAddTeacherActivity">
+
+    <include
+        android:id="@+id/admin_addTeacherToolbar"
+        layout="@layout/custom_actionbar"/>
+
+
+    <Spinner
+        android:layout_below="@+id/admin_addTeacherToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/addTeacher_DepartmentListSpinner"
+        android:background="@drawable/edit_bg1"
+        />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/addTeacher_DepartmentListSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/addnewTeacherRecyclerViewid"
+        />
+
+
+
+</RelativeLayout>

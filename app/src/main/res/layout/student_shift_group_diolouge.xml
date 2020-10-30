@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/studentlistselect_Textviewid"
+        android:textSize="18sp"
+        android:textStyle="bold|italic"
+        android:textColor="#000000"
+        />
+
+
+
+
+    <Spinner
+        android:layout_below="@+id/studentlistselect_Textviewid"
+        android:background="@drawable/edit_bg1"
+        android:layout_marginTop="15dp"
+      android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/studentList_diolougeShiftSpinnerid"
+        />
+    <Spinner
+
+        android:background="@drawable/edit_bg1"
+        android:layout_marginTop="15dp"
+      android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/studentList_diolougeShiftSpinnerid"
+        android:id="@+id/studentlist_diolougeGroupSpinnerid"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/studentlist_diolougeGroupSpinnerid"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/buttonbg"
+        android:text="Save"
+        android:textColor="#fff"
+        android:textAllCaps="false"
+        android:id="@+id/studentlistSelect_AddButtonid"
+
+        />
+
+
+
+</RelativeLayout>

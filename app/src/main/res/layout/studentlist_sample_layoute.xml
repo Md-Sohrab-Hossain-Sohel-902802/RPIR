@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:background="@drawable/edit_bg1"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:layout_marginBottom="8dp"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/studentList_nameTextviewid"
+        android:text="Md sohrab Hossain sohel"
+
+
+        />
+    <TextView
+        android:layout_marginTop="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        android:layout_alignParentRight="true"
+        android:id="@+id/studentList_RollTextviewid"
+        android:text="9025833"
+
+        />
+
+    <Button
+        android:id="@+id/studentList_PresentButtonid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="P"
+        android:textSize="17sp"
+        android:background="@drawable/buttonbg"
+        android:textColor="#fff"
+        android:layout_below="@+id/studentList_nameTextviewid"
+        android:layout_marginTop="10dp"
+        />
+    <Button
+
+        android:layout_marginLeft="20dp"
+        android:id="@+id/studentList_AbsentButtonid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A"
+        android:layout_toRightOf="@+id/studentList_PresentButtonid"
+        android:textSize="17sp"
+        android:background="@drawable/buttonbg"
+        android:textColor="#fff"
+        android:layout_below="@+id/studentList_nameTextviewid"
+        android:layout_marginTop="10dp"
+        />
+
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>
