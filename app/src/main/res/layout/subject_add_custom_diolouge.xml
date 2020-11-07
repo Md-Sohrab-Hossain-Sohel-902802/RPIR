@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="20dp"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/addSubject_SubjectNameEdittextid"
+        android:background="@drawable/edit_bg1"
+        android:padding="10dp"
+        android:hint="Enter Subject Name"
+        android:textSize="17sp"
+        android:textColor="#000"
+        android:inputType="text"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/addSubject_SubjectCodeEdittextid"
+       android:layout_below="@+id/addSubject_SubjectNameEdittextid"
+        android:background="@drawable/edit_bg1"
+        android:padding="10dp"
+        android:hint="Enter Subject Code"
+        android:textSize="17sp"
+        android:textColor="#000"
+        android:layout_marginTop="10dp"
+        android:inputType="number"
+        />
+
+    <Spinner
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_bg1"
+        android:layout_below="@+id/addSubject_SubjectCodeEdittextid"
+        android:id="@+id/addSubject_departmentSpinnerid"
+        />
+    <Spinner
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_bg1"
+        android:layout_below="@+id/addSubject_departmentSpinnerid"
+        android:id="@+id/addSubject_SemesterSpinnerid"
+        />
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttonbg"
+        android:layout_below="@+id/addSubject_SemesterSpinnerid"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="18sp"
+        android:text="Save"
+        android:id="@+id/addSubject_SaveButtonid"
+        android:layout_centerHorizontal="true"
+        />
+
+</RelativeLayout>

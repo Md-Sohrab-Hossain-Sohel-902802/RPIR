@@ -15,23 +15,29 @@
         android:textAlignment="center"
 
         />
-    <EditText
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/edit_bg1"
-        android:padding="10dp"
-        android:hint="Subject Code"
-        android:textColor="#000"
-        android:inputType="number"
-        android:textSize="16sp"
+        android:id="@+id/text45"
         android:layout_below="@+id/routine_Diolouge_HeaderTextviewid"
-        android:id="@+id/routineDiolouge_SubjectCodeEdittextid"
+        android:textSize="16sp"
+        android:textColor="#000"
+        android:text="Subject Code"
+        />
+
+    <Spinner
+        android:background="@drawable/edit_bg1"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/text45"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/routineDiolouge_SubjectCodeSpinnerid"
         />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/text"
-        android:layout_below="@+id/routineDiolouge_SubjectCodeEdittextid"
+        android:layout_below="@+id/routineDiolouge_SubjectCodeSpinnerid"
         android:textSize="16sp"
         android:textColor="#000"
         android:text="Teacher Code"

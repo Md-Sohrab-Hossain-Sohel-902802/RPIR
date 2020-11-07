@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".Student.StudentLoginActivity">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/s_login_rollEdittextid"
+        android:background="@drawable/edit_bg1"
+        android:padding="10dp"
+        android:hint="Roll"
+        android:textColorHint="#000"
+        android:textColor="#000"
+        android:textSize="17sp"
+        android:inputType="number"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/s_login_rollEdittextid"
+        android:id="@+id/s_login_registrationEdittextid"
+        android:background="@drawable/edit_bg1"
+        android:padding="10dp"
+        android:hint="Registration"
+        android:textColorHint="#000"
+        android:textColor="#000"
+        android:layout_marginTop="10dp"
+        android:textSize="17sp"
+        android:inputType="number"
+        />
+    <Button
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/s_login_LoginButtonid"
+        android:layout_below="@+id/s_login_registrationEdittextid"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/buttonbg"
+        android:textColor="#fff"
+        android:text="Login"
+        />
+</RelativeLayout>

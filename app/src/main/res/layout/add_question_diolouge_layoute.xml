@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@drawable/edit_bg1"
+        android:hint="Enter Question"
+        android:textSize="17sp"
+        android:textColor="#000"
+        android:id="@+id/question_diolouge_QuestionEdittextid"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@drawable/edit_bg1"
+        android:hint="Option 1"
+        android:textSize="17sp"
+        android:textColor="#000"
+        android:layout_below="@+id/question_diolouge_QuestionEdittextid"
+        android:id="@+id/question_diolouge_Option1QuestionEdittextid"
+        android:layout_marginTop="10dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@drawable/edit_bg1"
+        android:hint="Option 2"
+        android:textSize="17sp"
+        android:textColor="#000"
+        android:layout_below="@+id/question_diolouge_Option1QuestionEdittextid"
+        android:id="@+id/question_diolouge_Option2QuestionEdittextid"
+        android:layout_marginTop="10dp"
+        />
+     <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@drawable/edit_bg1"
+        android:hint="Option 3"
+        android:textSize="17sp"
+        android:textColor="#000"
+        android:layout_below="@+id/question_diolouge_Option2QuestionEdittextid"
+        android:id="@+id/question_diolouge_Option3QuestionEdittextid"
+        android:layout_marginTop="10dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@drawable/edit_bg1"
+        android:hint="Option 4"
+        android:textSize="17sp"
+        android:textColor="#000"
+        android:layout_below="@+id/question_diolouge_Option3QuestionEdittextid"
+        android:id="@+id/question_diolouge_Option4QuestionEdittextid"
+        android:layout_marginTop="10dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt12"
+        android:layout_below="@+id/question_diolouge_Option4QuestionEdittextid"
+      android:textSize="17sp"
+        android:textColor="#000"
+        android:text="Choose Answer Number"
+        />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_bg1"
+        android:layout_below="@+id/txt12"
+        android:layout_marginTop="10dp"
+        android:id="@+id/question_diolouge_AnswerNrSpinnerid"
+        />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/question_diolouge_AnswerNrSpinnerid"
+        android:background="@drawable/buttonbg"
+        android:layout_centerHorizontal="true"
+        android:textColor="#fff"
+        android:textAllCaps="false"
+        android:text="Save"
+        android:layout_marginTop="10dp"
+        android:id="@+id/question_SaveButtonid"
+
+        />
+
+
+
+
+
+</RelativeLayout>

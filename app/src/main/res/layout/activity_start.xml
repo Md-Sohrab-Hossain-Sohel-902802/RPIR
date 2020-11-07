@@ -32,6 +32,19 @@
         android:text="Login As a Teacher"
         android:textSize="17sp"
         />
+    <Button
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/start_teacherLoginButton"
+        android:id="@+id/student_loginButtonid"
+        android:layout_centerInParent="true"
+        android:background="@color/colorPrimary"
+        android:textColor="#fff"
+        android:textAllCaps="false"
+        android:text="Login As a Student"
+        android:textSize="17sp"
+        />
 
 
 

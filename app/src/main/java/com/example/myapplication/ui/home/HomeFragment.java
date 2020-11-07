@@ -18,11 +18,12 @@ import com.example.myapplication.Admin.AdminAddTeacherActivity;
 import com.example.myapplication.Admin.AdminNoticeListActivity;
 import com.example.myapplication.Admin.PublishNoticeActivity;
 import com.example.myapplication.Admin.StudentCategoryActivity;
+import com.example.myapplication.Admin.SubjectListActivity;
 import com.example.myapplication.R;
 
 public class HomeFragment extends Fragment {
 
-    private CardView addnewClass,addnewTeacher,addnewStudent,publishNotice;
+    private CardView addnewClass,addnewTeacher,addnewStudent,publishNotice,addSubject;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -33,12 +34,20 @@ public class HomeFragment extends Fragment {
         addnewTeacher=view.findViewById(R.id.mainAddnewTeacher);
         addnewStudent=view.findViewById(R.id.mainAddStudent);
         publishNotice=view.findViewById(R.id.mainPublishNotice);
+        addSubject=view.findViewById(R.id.mainAddSubject);
 
 
             publishNotice.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     startActivity(new Intent(getContext(), AdminNoticeListActivity.class));
+
+                }
+            });
+        addSubject.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(getContext(), SubjectListActivity.class));
 
                 }
             });

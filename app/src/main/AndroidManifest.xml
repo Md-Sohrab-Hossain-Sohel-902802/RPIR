@@ -14,7 +14,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Admin.AdminNoticeListActivity"></activity>
+        <activity android:name=".Teacher.TeacherQuizQuestionListActivity"></activity>
+        <activity android:name=".Teacher.TeacherQuizeListActivity" />
+        <activity android:name=".Student.StudentCgpaCalculatorActivity" />
+        <activity
+            android:name=".Student.StudentRoutineActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="fullSensor" />
+        <activity android:name=".Admin.SubjectListActivity" />
+        <activity android:name=".Student.StudentMainActivity" />
+        <activity android:name=".Student.StudentLoginActivity" />
+        <activity android:name=".Public.PublicNoticeListActivity" />
+        <activity android:name=".SingleNoticeActivity" />
+        <activity android:name=".Admin.AdminNoticeListActivity" />
         <activity android:name=".Admin.PublishNoticeActivity" />
         <activity android:name=".Teacher.TStudentPresentListActivity" />
         <activity android:name=".Teacher.TeacherStudentPresentActivity" />
@@ -28,6 +40,7 @@
         <activity android:name=".Teacher.TeacherLoginActivity" />
         <activity
             android:name=".Admin.AdminRoutineListActivity"
+            android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="fullSensor" />
         <activity android:name=".Admin.AdminStudentListActivity" />
         <activity android:name=".Admin.StudentCategoryActivity" />

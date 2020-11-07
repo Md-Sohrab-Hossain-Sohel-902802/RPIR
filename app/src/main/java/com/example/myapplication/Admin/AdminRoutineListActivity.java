@@ -54,7 +54,7 @@ public class AdminRoutineListActivity extends AppCompatActivity  implements View
     private  TextView thursday,thursdayP1,thursdayP2,thursdayP3,thursdayP4,thursdayP5,thursdayP6,thursdayP7;
     private  TextView header,addRoutineHeaderTextview;
 
-    String totalShortform;
+    String totalShortform,selectedsubjectCode;
 
 
 
@@ -70,11 +70,13 @@ public class AdminRoutineListActivity extends AppCompatActivity  implements View
 
     private String department,semester,shift,group,getgroup,getshift,teacherCode;
   private   List<TeachercodeDataModuler> allTeacherCodeList=new ArrayList<>();
+  private   List<TeachercodeDataModuler> allsubjectCodeList=new ArrayList<>();
   private   List<RoutineDataModuler> routineDataList=new ArrayList<>();
 
 
 
     private SpinnerArrayListAdapter teacherCodeAdapter;
+    private SpinnerArrayListAdapter subjectCodeAdapter;
 
 
 
@@ -82,8 +84,8 @@ public class AdminRoutineListActivity extends AppCompatActivity  implements View
     //routineDiolouge
 
 
-    private  EditText subjectCodeEdittext,rteacherNameEdittext,roomNumberEdittext;
-    private Spinner teacherCodeSpinner;
+    private  EditText rteacherNameEdittext,roomNumberEdittext;
+    private Spinner teacherCodeSpinner,subjectCodeSpinner;
     private Button routineAddDioloubeButton;
    private boolean isfirstSelected=true;
     private Toolbar toolbar;
@@ -104,18 +106,20 @@ public class AdminRoutineListActivity extends AppCompatActivity  implements View
     progressDialog1.setCanceledOnTouchOutside(false);
     progressDialog2.setCanceledOnTouchOutside(false);
 
+        department=getIntent().getStringExtra("department");
+        semester=getIntent().getStringExtra("semester");
 
 
 
         initialize();
           getAllTeacherCode();
+          getAllSubjectCode(department,semester);
 
-        department=getIntent().getStringExtra("department");
-        semester=getIntent().getStringExtra("semester");
         groupsAdapter=new SpinnerCustomAdapter(this,groups);
         shiftsAdapter=new SpinnerCustomAdapter(this,shifts);
         selectDiolouge(department,semester);
         teacherCodeAdapter=new SpinnerArrayListAdapter(this,allTeacherCodeList);
+        subjectCodeAdapter=new SpinnerArrayListAdapter(this,allsubjectCodeList);
 
 
 
@@ -739,6 +743,51 @@ public class AdminRoutineListActivity extends AppCompatActivity  implements View
 
     }
 
+    public void getAllSubjectCode(String department,String semester){
+        URLS urls=new URLS();
+        RequestQueue requestQueue= Volley.newRequestQueue(AdminRoutineListActivity.this);
+        String url=urls.getSubject()+"code/"+department+"/"+semester;
+        StringRequest stringRequest=new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject=new JSONObject(response);
+                    JSONArray array=jsonObject.getJSONArray("result");
+                    allsubjectCodeList.clear();
+                    TeachercodeDataModuler dataModuler1=new TeachercodeDataModuler(
+                            "Select Subject",
+                            ""
+                    );
+                    allsubjectCodeList.add(dataModuler1);
+                    for(int i=0; i<array.length(); i++){
+                        JSONObject receive=array.getJSONObject(i);
+
+                        TeachercodeDataModuler dataModuler=new TeachercodeDataModuler(
+                                receive.getString("name"),
+                                receive.getString("code")
+                        );
+                        allsubjectCodeList.add(dataModuler);
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(AdminRoutineListActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+            }
+        });
+        requestQueue.add(stringRequest);
+
+
+
+
+    }
+
 
     public void addRoutineDiolouge(final String startTime, final String endTime, final String day, final String period, final String serial) {
 
@@ -747,11 +796,12 @@ public class AdminRoutineListActivity extends AppCompatActivity  implements View
         builder.setView(view);
         routineAddDioloubeButton=view.findViewById(R.id.routineDiolouge_saveButtonid);
         addRoutineHeaderTextview=view.findViewById(R.id.routine_Diolouge_HeaderTextviewid);
-        subjectCodeEdittext=view.findViewById(R.id.routineDiolouge_SubjectCodeEdittextid);
+        subjectCodeSpinner=view.findViewById(R.id.routineDiolouge_SubjectCodeSpinnerid);
         teacherCodeSpinner=view.findViewById(R.id.routineDiolouge_TeacherCodeSpinnerid);
         rteacherNameEdittext=view.findViewById(R.id.routinediolouge_TeacherNameEdittextid);
         roomNumberEdittext=view.findViewById(R.id.routinediolouge_RoomNumberEdittextid);
         teacherCodeSpinner.setAdapter(teacherCodeAdapter);
+        subjectCodeSpinner.setAdapter(subjectCodeAdapter);
 
         addRoutineHeaderTextview.setText(day+"  : "+startTime+"(st)-- "+endTime+"(et) \n Period: "+period);
 
@@ -777,15 +827,30 @@ public class AdminRoutineListActivity extends AppCompatActivity  implements View
 
             }
         });
+        subjectCodeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(isfirstSelected==true){
+                    isfirstSelected=false;
+                }else{
+                    TeachercodeDataModuler data=allsubjectCodeList.get(position);
+                   selectedsubjectCode=data.getCode();
+                }
+
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         routineAddDioloubeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(subjectCodeEdittext.getText().toString().isEmpty()){
-                    subjectCodeEdittext.setError("Enter Subject code");
-                    subjectCodeEdittext.requestFocus();
-                } else if(teacherCode.isEmpty()){
-                    Toast.makeText(AdminRoutineListActivity.this, "Please Select An Teacher Code", Toast.LENGTH_SHORT).show();
+                if(teacherCode.isEmpty()){
+                    Toast.makeText(AdminRoutineListActivity.this, "Please Select A Teacher", Toast.LENGTH_SHORT).show();
+                } else  if(selectedsubjectCode.isEmpty()){
+                    Toast.makeText(AdminRoutineListActivity.this, "Please Select A Subject", Toast.LENGTH_SHORT).show();
                 }
                 else if(roomNumberEdittext.getText().toString().isEmpty()){
                     roomNumberEdittext.setError("Enter Room Number");
@@ -796,22 +861,8 @@ public class AdminRoutineListActivity extends AppCompatActivity  implements View
                 }else{
 
 
-                    saveRoutine(dialog,startTime,endTime,day,rteacherNameEdittext.getText().toString(),teacherCode,period,subjectCodeEdittext.getText().toString(),roomNumberEdittext.getText().toString(),serial);
+                    saveRoutine(dialog,startTime,endTime,day,rteacherNameEdittext.getText().toString(),teacherCode,period,selectedsubjectCode,roomNumberEdittext.getText().toString(),serial);
                 }
-
-
-
-//                saveShiftGroups(shift,group,dialog);
-//
-//                getgroup=getGroups();
-//                getshift=getShift();
-//
-//                String shrtdep=makeDepartmentShort(department);
-//                String shrtshift=makeShiftShort(getshift);
-//                String shrtsem=makeSemesterShort(semester);
-//
-//                totalShortform= shrtsem+""+shrtdep+""+getgroup+""+shrtshift;
-//                header.setText(""+totalShortform);
             }
         });
     }
@@ -831,10 +882,21 @@ public class AdminRoutineListActivity extends AppCompatActivity  implements View
                 try {
                     progressDialog2.dismiss();
                     JSONObject jsonObject=new JSONObject(response);
+                    String result=jsonObject.getString("r");
+                    if(result.equals("c")){
+                        Toast.makeText(AdminRoutineListActivity.this, ""+jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                        getClassRoutine(department,getgroup,getshift,semester);
+                        dialog.dismiss();
+                    }else if(result.equals("d")){
+                        Toast.makeText(AdminRoutineListActivity.this, ""+jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                        getClassRoutine(department,getgroup,getshift,semester);
+                        dialog.dismiss();
+                    }
 
-                    Toast.makeText(AdminRoutineListActivity.this, ""+jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
-                    getClassRoutine(department,getgroup,getshift,semester);
-                    dialog.dismiss();
+
+
+
+
                 } catch (JSONException e) {
                     progressDialog2.dismiss();
                     e.printStackTrace();

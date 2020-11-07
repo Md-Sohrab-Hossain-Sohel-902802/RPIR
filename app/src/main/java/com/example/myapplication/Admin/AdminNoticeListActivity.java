@@ -12,8 +12,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.myapplication.Admin.Adapter.NoticeAdapter;
+import com.example.myapplication.Admin.Adapter.SingleNoticeAdapter;
 import com.example.myapplication.Admin.DataModuler.NoticeDataModuler;
 import com.example.myapplication.R;
+import com.example.myapplication.SingleNoticeActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -48,6 +50,26 @@ public class AdminNoticeListActivity extends AppCompatActivity {
         adapter=new NoticeAdapter(this,noticedataList);
         recyclerView.setAdapter(adapter);
 
+        adapter.setOnItemClickListner(new NoticeAdapter.OnItemClickListner() {
+            @Override
+            public void onItemClick(int position) {
+                    String key=noticedataList.get(position).getKey();
+
+                    Intent intent=new Intent(AdminNoticeListActivity.this, SingleNoticeActivity.class);
+                    intent.putExtra("key",key);
+                    startActivity(intent);
+            }
+
+            @Override
+            public void onDelete(int position) {
+
+            }
+
+            @Override
+            public void onUpdate(int position) {
+
+            }
+        });
 
 
 

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@drawable/edit_bg1"
+        android:hint="Enter Quiz Name"
+        android:textSize="17sp"
+        android:textColor="#000"
+        android:id="@+id/quiz_diolouge_QuizeNameEdittext"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/quiz_diolouge_QuizeNameEdittext"
+        android:textSize="16sp"
+        android:layout_marginTop="5dp"
+        android:text="Who can see your quiz?"
+        android:textColor="#000"
+        android:id="@+id/txt45"
+        />
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_bg1"
+        android:layout_below="@+id/txt45"
+        android:layout_marginTop="10dp"
+        android:id="@+id/quize_diolouge_AccessSpinnerid"
+        />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/quize_diolouge_AccessSpinnerid"
+        android:background="@drawable/buttonbg"
+        android:layout_centerHorizontal="true"
+        android:textColor="#fff"
+        android:textAllCaps="false"
+        android:text="Save"
+        android:layout_marginTop="10dp"
+        android:id="@+id/quize_SaveButtonid"
+
+        />
+
+
+
+
+
+</RelativeLayout>

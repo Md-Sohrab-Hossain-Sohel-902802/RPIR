@@ -36,6 +36,30 @@
         android:textColor="#fff"
         android:text="Teachers"
 
+        />  <Button
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/teacher_MainTeachersButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/teacher_NoticeButton"
+        android:background="@drawable/buttonbg"
+        android:layout_centerInParent="true"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:text="Notice"
+
+        />  <Button
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/teacher_NoticeButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/teacher_QuizButton"
+        android:background="@drawable/buttonbg"
+        android:layout_centerInParent="true"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:text="Quiz"
+
         />
 
 

@@ -11,6 +11,8 @@ public class URLS {
         String routine="http://192.168.43.59:4002/routine/";
         String present="http://192.168.43.59:4002/present/";
         String getteacherUser="http://192.168.43.59:4002/user/getTeacher";
+        String loginStudent="http://192.168.43.59:4002/user/loginstudent";
+        String subject="http://192.168.43.59:4002/subject/";
 
 /*
         String loginUrl="https://rpibackend.herokuapp.com/user/login";
@@ -22,6 +24,15 @@ public class URLS {
         String routine="https://rpibackend.herokuapp.com/routine/";
         String getteacherUser="https://rpibackend.herokuapp.com/user/getTeacher";
 */
+
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public String getLoginStudent() {
+        return loginStudent;
+    }
 
     public String getPresent() {
         return present;

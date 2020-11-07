@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="5dp"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="5dp">
+
+    <RelativeLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+            <TextView
+                android:layout_alignParentLeft="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                 android:textColor="#0AC1B1"
+                android:text="Code"
+                android:textSize="18sp"
+                android:id="@+id/subjectList_CodeTextviewid"
+                />
+          <TextView
+              android:layout_alignParentRight="true"
+              android:layout_toLeftOf="@+id/subjectList_CodeTextviewid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                 android:textColor="#000"
+                android:text="Subject Name"
+                android:textSize="17sp"
+                android:id="@+id/subjectList_SubjectNameTextviewid"
+                />
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

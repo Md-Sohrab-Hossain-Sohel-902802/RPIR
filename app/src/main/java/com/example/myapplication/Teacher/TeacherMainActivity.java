@@ -14,14 +14,17 @@ import android.widget.Button;
 
 import com.example.myapplication.LocalStorage.Shared.UsersShared;
 import com.example.myapplication.MainActivity;
+import com.example.myapplication.Public.PublicNoticeListActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.StartActivity;
+import com.example.sdlibrary.Sohel;
 
 public class TeacherMainActivity extends AppCompatActivity {
 
 
-    private  Button  dailyClassroutine,teachersButton;
+    private  Button  dailyClassroutine,teachersButton,noticeButton,quizButton;
    Toolbar toolbar;
+
 
 
     @Override
@@ -36,6 +39,8 @@ public class TeacherMainActivity extends AppCompatActivity {
 
         dailyClassroutine=findViewById(R.id.teacher_MainRoutineButton);
         teachersButton=findViewById(R.id.teacher_MainTeachersButton);
+        noticeButton=findViewById(R.id.teacher_NoticeButton);
+        quizButton=findViewById(R.id.teacher_QuizButton);
 
         dailyClassroutine.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +52,18 @@ public class TeacherMainActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             startActivity(new Intent(TeacherMainActivity.this,AllTeacherActivity.class));
+
+        }
+    });  noticeButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            startActivity(new Intent(TeacherMainActivity.this, PublicNoticeListActivity.class));
+
+        }
+    });quizButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            startActivity(new Intent(TeacherMainActivity.this, TeacherQuizeListActivity.class));
 
         }
     });

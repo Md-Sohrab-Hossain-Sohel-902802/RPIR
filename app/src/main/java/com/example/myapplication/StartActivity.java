@@ -9,12 +9,14 @@ import android.widget.Button;
 
 import com.example.myapplication.Admin.AdminLoginActivity;
 import com.example.myapplication.LocalStorage.Shared.UsersShared;
+import com.example.myapplication.Student.StudentLoginActivity;
+import com.example.myapplication.Student.StudentMainActivity;
 import com.example.myapplication.Teacher.TeacherLoginActivity;
 import com.example.myapplication.Teacher.TeacherMainActivity;
 
 public class StartActivity extends AppCompatActivity {
 
-    private Button adminLoginButon,teacherLoginButton;
+    private Button adminLoginButon,teacherLoginButton,studentLoginButtonid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,7 @@ public class StartActivity extends AppCompatActivity {
 
         adminLoginButon=findViewById(R.id.start_adminLoginButton);
         teacherLoginButton=findViewById(R.id.start_teacherLoginButton);
+        studentLoginButtonid=findViewById(R.id.student_loginButtonid);
         adminLoginButon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,6 +46,16 @@ public class StartActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        studentLoginButtonid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(StartActivity.this, StudentLoginActivity.class);
+                intent.putExtra("usertype","teacher");
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     @Override
@@ -54,6 +67,8 @@ public class StartActivity extends AppCompatActivity {
             startActivity(new Intent(StartActivity.this,MainActivity.class));
         }else  if(usersShared.getUertype().equals("teacher")){
             startActivity(new Intent(StartActivity.this, TeacherMainActivity.class));
+        }else  if(usersShared.getUertype().equals("student")){
+            startActivity(new Intent(StartActivity.this, StudentMainActivity.class));
         }
 
 
