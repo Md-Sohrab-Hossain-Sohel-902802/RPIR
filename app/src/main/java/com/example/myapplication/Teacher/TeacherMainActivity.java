@@ -88,6 +88,7 @@ public class TeacherMainActivity extends AppCompatActivity {
             UsersShared shared=new UsersShared(TeacherMainActivity.this) ;
             shared.saveUserdata("","","","","","","","","","","");
             startActivity(new Intent(TeacherMainActivity.this, StartActivity.class));
+            finish();
         }
 
 

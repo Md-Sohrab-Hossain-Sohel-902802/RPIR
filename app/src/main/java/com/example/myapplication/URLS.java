@@ -13,6 +13,8 @@ public class URLS {
         String getteacherUser="http://192.168.43.59:4002/user/getTeacher";
         String loginStudent="http://192.168.43.59:4002/user/loginstudent";
         String subject="http://192.168.43.59:4002/subject/";
+        String quiz="http://192.168.43.59:4002/quiz/";
+        String quizAnswer="http://192.168.43.59:4002/quizanswer/";
 
 /*
         String loginUrl="https://rpibackend.herokuapp.com/user/login";
@@ -25,6 +27,13 @@ public class URLS {
         String getteacherUser="https://rpibackend.herokuapp.com/user/getTeacher";
 */
 
+    public String getQuizAnswer() {
+        return quizAnswer;
+    }
+
+    public String getQuiz() {
+        return quiz;
+    }
 
     public String getSubject() {
         return subject;

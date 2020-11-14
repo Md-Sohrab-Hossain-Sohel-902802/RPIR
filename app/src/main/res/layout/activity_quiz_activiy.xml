@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Student.QuizActiviy">
+
+
+    <TextView
+         android:id="@+id/quiz_ScoreTextviewid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+          android:textStyle="bold"
+        android:textColor="#000"
+        android:text="Score"
+        android:layout_alignParentLeft="true"
+        />
+    <TextView
+        android:layout_below="@+id/quiz_ScoreTextviewid"
+         android:id="@+id/quiz_TotalQuestionTextviewid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+       android:fontFamily="@font/allan"
+        android:textColor="#000"
+        android:text="Total Question"
+        android:layout_alignParentLeft="true"
+        />
+    <TextView
+        android:padding="10dp"
+        android:layout_alignParentRight="true"
+        android:id="@+id/quiz_CountDownTimerTextviewid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+       android:fontFamily="@font/allan"
+        android:textColor="#000"
+        android:text="4:10"
+        />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/quiz_TotalQuestionTextviewid"
+         android:id="@+id/quiz_QuestionTextviewid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/allan"
+        android:textColor="#000"
+       android:textAlignment="center"
+        android:text="What is data structure and algorithm?"
+
+        />
+
+
+    <RadioGroup
+        android:id="@+id/quiz_radio_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/quiz_QuestionTextviewid"
+   >
+
+        <RadioButton
+            android:id="@+id/quiz_radio_button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Option 1"
+            android:textColor="#000"
+            android:freezesText="true"/>
+
+        <RadioButton
+            android:id="@+id/quiz_radio_button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Option 2"
+            android:textColor="#000"
+            android:freezesText="true"/>
+
+        <RadioButton
+            android:id="@+id/quiz_radio_button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Option 3"
+            android:textColor="#000"
+            android:freezesText="true"/>
+        <RadioButton
+            android:id="@+id/quiz_radio_button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Option 3"
+            android:textColor="#000"
+            android:freezesText="true"/>
+
+
+    </RadioGroup>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/quizConfirmButtonid"
+        android:layout_below="@+id/quiz_radio_group"
+        android:layout_marginTop="10dp"
+        android:background="#61C9EC"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:text="Confirm"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/quizPublishButtonid"
+        android:layout_below="@+id/quiz_radio_group"
+        android:layout_marginTop="10dp"
+        android:background="#61C9EC"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:text="Finish"
+        android:visibility="gone"
+        />
+
+</RelativeLayout>

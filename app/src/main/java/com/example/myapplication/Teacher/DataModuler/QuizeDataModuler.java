@@ -1,17 +1,18 @@
 package com.example.myapplication.Teacher.DataModuler;
 
 public class QuizeDataModuler {
-  String quizName,accesstype,key,image;
+  String quizName,accesstype,key,image,qnumber;
 
     public  QuizeDataModuler(){
 
     }
 
-    public QuizeDataModuler(String key,String quizName, String accesstype,String image) {
+    public QuizeDataModuler(String key,String quizName, String accesstype,String image,String qnumber) {
         this.key=key;
         this.quizName = quizName;
         this.accesstype = accesstype;
         this.image=image;
+        this.qnumber=qnumber;
     }
 
     public String getKey() {
@@ -45,4 +46,13 @@ public class QuizeDataModuler {
     public void setImage(String image) {
         this.image = image;
     }
+
+    public String getQnumber() {
+        return qnumber;
+    }
+
+    public void setQnumber(String qnumber) {
+        this.qnumber = qnumber;
+    }
 }
+

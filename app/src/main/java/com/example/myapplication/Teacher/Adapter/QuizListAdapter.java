@@ -45,7 +45,7 @@ public class QuizListAdapter extends RecyclerView.Adapter<QuizListAdapter.MyView
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
             QuizeDataModuler currentItem=quizeDataList.get(position);
 
-            holder.quizeNameTextview.setText(currentItem.getQuizName());
+            holder.quizeNameTextview.setText(currentItem.getQuizName()+"\n Total  questions: ("+currentItem.getQnumber()+")");
 
             if(currentItem.getImage().equals("null")){
                 Picasso.get().load(R.drawable.cg1).placeholder(R.drawable.cg1).into(holder.quizeImageview);
@@ -74,10 +74,6 @@ public class QuizListAdapter extends RecyclerView.Adapter<QuizListAdapter.MyView
             quizeImageview=itemView.findViewById(R.id.quize_list_Imageviewid);
             itemView.setOnClickListener(this);
             itemView.setOnCreateContextMenuListener(this);
-
-
-
-
         }
         @Override
         public boolean onMenuItemClick(MenuItem item) {
@@ -95,6 +91,9 @@ public class QuizListAdapter extends RecyclerView.Adapter<QuizListAdapter.MyView
                         }
                         case 3:{
                             listner.onUpdate(position);
+                            return  true;
+                        } case 4:{
+                            listner.onTakeExam(position);
                             return  true;
                         }
                     }
@@ -120,10 +119,12 @@ public class QuizListAdapter extends RecyclerView.Adapter<QuizListAdapter.MyView
             menu.setHeaderTitle("choose an action");
             MenuItem delete=menu.add(Menu.NONE,1,1,"Delete This Quiz");
             MenuItem update=menu.add(Menu.NONE,3,3,"Update This Quiz");
+            MenuItem takeExam=menu.add(Menu.NONE,4,4,"Take An exam for this quiz");
             MenuItem setimage=menu.add(Menu.NONE,2,2,"Set An Image");
             delete.setOnMenuItemClickListener(this);
             setimage.setOnMenuItemClickListener(this);
             update.setOnMenuItemClickListener(this);
+            takeExam.setOnMenuItemClickListener(this);
 
         }
     }
@@ -133,6 +134,7 @@ public class QuizListAdapter extends RecyclerView.Adapter<QuizListAdapter.MyView
         void onDelete(int position);
         void onUpdate(int position);
         void onImageSet(int position);
+        void onTakeExam(int position);
     }
     public void setOnItemClickListner(OnItemClickListner listner){
         this.listner=listner;

@@ -1,16 +1,12 @@
-package com.example.myapplication.Teacher.DataModuler;
+package com.example.myapplication.Student.DataModuler;
 
-import com.example.myapplication.Teacher.Adapter.QuestionListAdapter;
+import java.io.Serializable;
 
-public class QuestionListDataModuler {
+public class StudentQuizQuestion  implements Serializable {
 
     String key,question,option1,option2,option3,option4,answerNumber,mark;
 
-    public QuestionListDataModuler(){
-
-    }
-
-    public QuestionListDataModuler(String key, String question, String option1, String option2, String option3, String option4, String answerNumber,String mark) {
+    public StudentQuizQuestion(String key, String question, String option1, String option2, String option3, String option4, String answerNumber, String mark) {
         this.key = key;
         this.question = question;
         this.option1 = option1;
@@ -84,4 +80,6 @@ public class QuestionListDataModuler {
     public void setAnswerNumber(String answerNumber) {
         this.answerNumber = answerNumber;
     }
+
+
 }

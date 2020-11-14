@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:layout_height="wrap_content">
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/publish_quiz_DepartmentSpinnerId"
+       android:padding="10dp"
+        />
+    <Spinner
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/publish_quiz_DepartmentSpinnerId"
+        android:id="@+id/publish_quiz_SemesterSpinnerId"
+      android:padding="10dp"
+        />
+    <Spinner
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/publish_quiz_SemesterSpinnerId"
+        android:id="@+id/publish_quiz_ShiftSpinnerId"
+       android:padding="10dp"
+        />
+    <Spinner
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/publish_quiz_ShiftSpinnerId"
+        android:id="@+id/publish_quiz_GroupSpinnerId"
+      android:padding="10dp"
+        />
+    <Spinner
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/publish_quiz_GroupSpinnerId"
+        android:id="@+id/publish_quiz_TimeSpinnerId"
+      android:padding="10dp"
+        />
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/publish_quiz_TimeSpinnerId"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edit_bg1"
+        android:text="Take Exam"
+        android:textAllCaps="false"
+        android:id="@+id/publish_quiz_Button"
+
+        />
+
+
+
+</RelativeLayout>

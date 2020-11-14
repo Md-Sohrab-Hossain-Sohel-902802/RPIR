@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1C1616"
+    tools:context=".Student.StudentQuizDetailsActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:id="@+id/studentQuizImageviewid"
+        android:src="@drawable/cg4"
+        android:scaleType="centerCrop"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/studentQuizImageviewid"
+        android:layout_marginTop="10dp"
+        android:textSize="17sp"
+        android:textColor="#fff"
+        android:text="Quiz Name"
+        android:id="@+id/studentQuiz_QuizNameTextview"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/studentQuiz_QuizNameTextview"
+        android:layout_marginTop="3dp"
+        android:textSize="17sp"
+        android:textColor="#fff"
+        android:text="Total Question"
+        android:id="@+id/studentQuiz_TotalQuestionTextview"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/studentQuiz_TotalQuestionTextview"
+        android:layout_marginTop="3dp"
+        android:textSize="17sp"
+        android:textColor="#fff"
+        android:text="Time"
+        android:id="@+id/studentQuiz_TimeTextview"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/studentQuiz_TimeTextview"
+        android:layout_marginTop="3dp"
+        android:textSize="17sp"
+        android:textColor="#fff"
+        android:text="Time Spend (00:00min) from (2.00min)"
+        android:id="@+id/studentQuiz_EndTimeTextview"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#0C989C"
+        android:text="Start Quiz"
+        android:textColor="#fff"
+        android:textSize="17sp"
+        android:textAllCaps="false"
+        android:id="@+id/student_StartQuizButton"
+
+        />
+
+</RelativeLayout>

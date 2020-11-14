@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
             UsersShared shared=new UsersShared(MainActivity.this) ;
             shared.saveUserdata("","","","","","","","","","","");
             startActivity(new Intent(MainActivity.this,StartActivity.class));
+            finish();
         }
 
 

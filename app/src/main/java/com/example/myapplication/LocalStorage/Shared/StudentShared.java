@@ -39,6 +39,10 @@ public class StudentShared {
         SharedPreferences sharedPreferences=activity.getSharedPreferences("student",Context.MODE_PRIVATE);
         String roll=sharedPreferences.getString("roll","");
         return  roll;
+    } public  String getRegistration(){
+        SharedPreferences sharedPreferences=activity.getSharedPreferences("student",Context.MODE_PRIVATE);
+        String roll=sharedPreferences.getString("registration","");
+        return  roll;
     }
     public  String getDepartment(){
         SharedPreferences sharedPreferences=activity.getSharedPreferences("student",Context.MODE_PRIVATE);

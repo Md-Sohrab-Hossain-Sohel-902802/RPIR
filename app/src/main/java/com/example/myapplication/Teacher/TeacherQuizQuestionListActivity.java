@@ -18,11 +18,19 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.myapplication.Admin.Adapter.SpinnerCustomAdapter;
 import com.example.myapplication.LocalStorage.Shared.UsersShared;
 import com.example.myapplication.R;
 import com.example.myapplication.Teacher.Adapter.QuestionListAdapter;
 import com.example.myapplication.Teacher.DataModuler.QuestionListDataModuler;
+import com.example.myapplication.Teacher.DataModuler.QuizeDataModuler;
+import com.example.myapplication.URLS;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -32,12 +40,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class TeacherQuizQuestionListActivity extends AppCompatActivity {
-    private  String quizKey,userId,quizName,selectedAnswerNumber,question,option1,option2,option3,option4;
+    private  String quizKey,userId,quizName,selectedAnswerNumber,mark,question,option1,option2,option3,option4;
 
     private Toolbar toolbar;
     private RecyclerView recyclerView;
@@ -47,7 +60,7 @@ public class TeacherQuizQuestionListActivity extends AppCompatActivity {
 
     //<-----------------Diolouge Variable------------------->
 
-    private  EditText questionEdittext,option1Edittext,option2Edittext,option3Edittext,option4Edittext;
+    private  EditText markEdittext,questionEdittext,option1Edittext,option2Edittext,option3Edittext,option4Edittext;
     private Spinner answerNumberSpinner;
     private  Button saveQuestionButton;
 
@@ -124,64 +137,98 @@ public class TeacherQuizQuestionListActivity extends AppCompatActivity {
     private void deleteQuestion(String key) {
         progressDialog.setTitle("Deleting........");
         progressDialog.show();
-        databaseReference.child(key).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+
+
+        URLS urls=new URLS();
+        RequestQueue requestQueue= Volley.newRequestQueue(TeacherQuizQuestionListActivity.this);
+        String url=urls.getQuiz()+"question/"+quizKey+"/"+key;
+
+        StringRequest stringRequest=new StringRequest(Request.Method.DELETE, url, new Response.Listener<String>() {
             @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful()){
+            public void onResponse(String response) {
+                try {
                     progressDialog.dismiss();
-                    Toast.makeText(TeacherQuizQuestionListActivity.this, "Question Deleted", Toast.LENGTH_SHORT).show();
+                    JSONObject jsonObject=new JSONObject(response);
+                    Toast.makeText(TeacherQuizQuestionListActivity.this, "" + jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                  onStart();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    progressDialog.dismiss();
                 }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(TeacherQuizQuestionListActivity.this, "Failed"+error.toString(), Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
             }
         });
-
-
-
-
+        requestQueue.add(stringRequest);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+        getAllQuiz();
+    }
 
-        progressDialog.setTitle("Loading.......");
+    public void getAllQuiz(){
+        progressDialog.setTitle("Loading.....");
         progressDialog.show();
-        databaseReference.keepSynced(true);
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        URLS urls=new URLS();
+
+
+        RequestQueue requestQueue= Volley.newRequestQueue(TeacherQuizQuestionListActivity.this);
+        String url=urls.getQuiz()+"question/"+quizKey;
+
+        StringRequest stringRequest=new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if(snapshot.exists()){
-                        questionDataList.clear();
-                        for (DataSnapshot snapshot1: snapshot.getChildren()){
-                                String key=snapshot1.child("key").getValue().toString();
-                                String question=snapshot1.child("question").getValue().toString();
-                                String option1=snapshot1.child("option1").getValue().toString();
-                                String option2=snapshot1.child("option2").getValue().toString();
-                                String option3=snapshot1.child("option3").getValue().toString();
-                                String option4=snapshot1.child("option4").getValue().toString();
-                                String answerNumber=snapshot1.child("answerNumber").getValue().toString();
+            public void onResponse(String response) {
+                try {
+                    progressDialog.dismiss();
 
-                                QuestionListDataModuler data=new QuestionListDataModuler(key,question,option1,option2,option3,option4,answerNumber);
-                                questionDataList.add(data);
-                                progressDialog.dismiss();
-                                questionListAdapter.notifyDataSetChanged();
+                    JSONObject jsonObject=new JSONObject(response);
+                    JSONArray array=jsonObject.getJSONArray("result");
+                    questionDataList.clear();
+                    for(int i=0; i<array.length(); i++){
 
+                        JSONObject receive=array.getJSONObject(i);
+                        QuestionListDataModuler dataModuler=new QuestionListDataModuler(
+                                receive.getString("_id"),
+                                receive.getString("question"),
+                                receive.getString("option1"),
+                                receive.getString("option2"),
+                                receive.getString("option3"),
+                                receive.getString("option4"),
+                                receive.getString("answerNr"),
+                                receive.getString("mark")
+                        );
 
-                        }
+                        questionDataList.add(dataModuler);
+                        questionListAdapter.notifyDataSetChanged();
                     }
+
+                } catch (JSONException e) {
+                    progressDialog.dismiss();
+                    e.printStackTrace();
+                }
+
+
             }
-
+        }, new Response.ErrorListener() {
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
+            public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
+                Toast.makeText(TeacherQuizQuestionListActivity.this, "Failed", Toast.LENGTH_SHORT).show();
             }
         });
-
-
+        requestQueue.add(stringRequest);
 
 
 
     }
-
     public void addQuestionDiolouge() {
         AlertDialog.Builder builder=new AlertDialog.Builder(TeacherQuizQuestionListActivity.this);
         View view=getLayoutInflater().inflate(R.layout.add_question_diolouge_layoute,null);
@@ -191,6 +238,7 @@ public class TeacherQuizQuestionListActivity extends AppCompatActivity {
         option2Edittext=view.findViewById(R.id.question_diolouge_Option2QuestionEdittextid);
         option3Edittext=view.findViewById(R.id.question_diolouge_Option3QuestionEdittextid);
         option4Edittext=view.findViewById(R.id.question_diolouge_Option4QuestionEdittextid);
+        markEdittext=view.findViewById(R.id.question_diolouge_QuestionMarkEdittextid);
         answerNumberSpinner=view.findViewById(R.id.question_diolouge_AnswerNrSpinnerid);
         saveQuestionButton=view.findViewById(R.id.question_SaveButtonid);
 
@@ -220,6 +268,7 @@ public class TeacherQuizQuestionListActivity extends AppCompatActivity {
                 option2=option2Edittext.getText().toString();
                 option3=option3Edittext.getText().toString();
                 option4=option4Edittext.getText().toString();
+                mark=markEdittext.getText().toString();
                 if(question.isEmpty()){
                     questionEdittext.setError("Please Write Your Question");
                     questionEdittext.requestFocus();
@@ -235,6 +284,9 @@ public class TeacherQuizQuestionListActivity extends AppCompatActivity {
                 }else if(option4.isEmpty()){
                     option4Edittext.setError("Enter Option 4");
                     option4Edittext.requestFocus();
+                }else if(mark.isEmpty()){
+                    markEdittext.setError("Enter Marks For This Question");
+                    markEdittext.requestFocus();
                 }else if(selectedAnswerNumber.isEmpty()){
                     Toast.makeText(TeacherQuizQuestionListActivity.this, "Please Choose An Answer Number", Toast.LENGTH_SHORT).show();
                 }else{
@@ -319,26 +371,51 @@ public class TeacherQuizQuestionListActivity extends AppCompatActivity {
         progressDialog.setTitle("Updating Question");
         progressDialog.show();
 
-        HashMap<String,Object> hashMap=new HashMap<>();
-        hashMap.put("question",question);
-        hashMap.put("option1",option1);
-        hashMap.put("option2",option2);
-        hashMap.put("option3",option3);
-        hashMap.put("option4",option4);
-        hashMap.put("answerNumber",selectedAnswerNumber);
 
-        databaseReference.child(key).updateChildren(hashMap)
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                                if(task.isSuccessful()){
-                                    progressDialog.dismiss();
-                                    Toast.makeText(TeacherQuizQuestionListActivity.this, "Updated Successful", Toast.LENGTH_SHORT).show();
-                                    dialog.dismiss();
-                                }
-                        }
-                    });
 
+        URLS urls=new URLS();
+        RequestQueue requestQueue= Volley.newRequestQueue(TeacherQuizQuestionListActivity.this);
+        String url=urls.getQuiz()+"question/"+quizKey+"/"+key;
+
+        StringRequest stringRequest=new StringRequest(Request.Method.PUT, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    progressDialog.dismiss();
+                    JSONObject jsonObject=new JSONObject(response);
+                    Toast.makeText(TeacherQuizQuestionListActivity.this, "" + jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                    onStart();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    progressDialog.dismiss();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(TeacherQuizQuestionListActivity.this, "Failed"+error.toString(), Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
+            }
+        }){
+
+            @Override
+            protected Map<String, String> getParams()  {
+
+                Map<String, String>  parms=new HashMap<String, String>();
+                parms.put("question",question);
+                parms.put("option1",option1);
+                parms.put("option2",option2);
+                parms.put("option3",option3);
+                parms.put("option4",option4);
+                parms.put("answerNr",selectedAnswerNumber);
+                parms.put("mark","1");
+                return  parms;
+            }
+        };
+        requestQueue.add(stringRequest);
 
     }
 
@@ -348,22 +425,51 @@ public class TeacherQuizQuestionListActivity extends AppCompatActivity {
     public void saveQuestion(final Dialog dialog){
             progressDialog.setTitle("Saving Question");
             progressDialog.show();
-        String questionKey=databaseReference.push().getKey();
 
-        QuestionListDataModuler dataModuler=new QuestionListDataModuler(questionKey,question,option1,option2,option3,option4,selectedAnswerNumber);
 
-        databaseReference.child(questionKey).setValue(dataModuler).addOnCompleteListener(new OnCompleteListener<Void>() {
+        URLS urls=new URLS();
+        RequestQueue requestQueue= Volley.newRequestQueue(TeacherQuizQuestionListActivity.this);
+        String url=urls.getQuiz()+"question/"+quizKey;
+
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful()){
-                    Toast.makeText(TeacherQuizQuestionListActivity.this, "Question Saved", Toast.LENGTH_SHORT).show();
+            public void onResponse(String response) {
+                try {
                     progressDialog.dismiss();
+                    JSONObject jsonObject=new JSONObject(response);
+                    Toast.makeText(TeacherQuizQuestionListActivity.this, "" + jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
-
-
+                    onStart();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    progressDialog.dismiss();
                 }
+
+
             }
-        });
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(TeacherQuizQuestionListActivity.this, "Failed"+error.toString(), Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
+            }
+        }){
+
+            @Override
+            protected Map<String, String> getParams()  {
+
+                Map<String, String>  parms=new HashMap<String, String>();
+                parms.put("question",question);
+                parms.put("option1",option1);
+                parms.put("option2",option2);
+                parms.put("option3",option3);
+                parms.put("option4",option4);
+                parms.put("answerNr",selectedAnswerNumber);
+                parms.put("mark",mark);
+                return  parms;
+            }
+        };
+        requestQueue.add(stringRequest);
     }
 
 

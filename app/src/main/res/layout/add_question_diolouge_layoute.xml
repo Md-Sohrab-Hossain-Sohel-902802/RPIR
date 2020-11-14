@@ -63,11 +63,24 @@
         android:id="@+id/question_diolouge_Option4QuestionEdittextid"
         android:layout_marginTop="10dp"
         />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@drawable/edit_bg1"
+        android:hint="Mark"
+        android:inputType="numberDecimal"
+        android:textSize="17sp"
+        android:textColor="#000"
+        android:layout_below="@+id/question_diolouge_Option4QuestionEdittextid"
+        android:id="@+id/question_diolouge_QuestionMarkEdittextid"
+        android:layout_marginTop="10dp"
+        />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txt12"
-        android:layout_below="@+id/question_diolouge_Option4QuestionEdittextid"
+        android:layout_below="@+id/question_diolouge_QuestionMarkEdittextid"
       android:textSize="17sp"
         android:textColor="#000"
         android:text="Choose Answer Number"

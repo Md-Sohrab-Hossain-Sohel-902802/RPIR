@@ -16,6 +16,7 @@ import com.example.myapplication.LocalStorage.Shared.UsersShared;
 import com.example.myapplication.R;
 import com.example.myapplication.StartActivity;
 import com.example.myapplication.Student.Adapter.StudentMainAdapter;
+import com.example.myapplication.Student.Adapter.StudentQuizListAdapter;
 import com.example.myapplication.Teacher.TeacherMainActivity;
 
 public class StudentMainActivity extends AppCompatActivity {
@@ -23,7 +24,7 @@ public class StudentMainActivity extends AppCompatActivity {
     private GridView gridView;
     private StudentMainAdapter adapter;
 
-    private  String[] values={"Routine","Cgpa Calculator","Probidhan","Academic Calender","Study","Institute","Book List","Notice","Board"};
+    private  String[] values={"Routine","Cgpa Calculator","Probidhan","Academic Calender","Quiz","Institute","Book List","Notice","Board"};
     private  int[] images={
             R.drawable.profile,
             R.drawable.profile,
@@ -60,6 +61,8 @@ public class StudentMainActivity extends AppCompatActivity {
                         startActivity(new Intent(StudentMainActivity.this,StudentRoutineActivity.class));
                     }   if(position==1){
                         startActivity(new Intent(StudentMainActivity.this,StudentCgpaCalculatorActivity.class));
+                    }  if(position==4){
+                        startActivity(new Intent(StudentMainActivity.this, StudentQuizListActivity.class));
                     }
             }
         });
@@ -89,6 +92,7 @@ public class StudentMainActivity extends AppCompatActivity {
             UsersShared shared=new UsersShared(StudentMainActivity.this) ;
             shared.saveUserdata("","","","","","","","","","","");
             startActivity(new Intent(StudentMainActivity.this, StartActivity.class));
+            finish();
         }
 
 
